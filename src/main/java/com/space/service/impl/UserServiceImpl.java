@@ -188,7 +188,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 检查注册邮箱
+     * 检查注册邮箱的注视
      * @param userAccount
      * @param token
      * @return
