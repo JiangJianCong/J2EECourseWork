@@ -1,0 +1,31 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div id="course_list">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption style="font-size: 15px">课程列表</caption>
+                <thead>
+                <tr>
+                    <th>课程名字</th>
+                    <th>课程描述</th>
+                    <th>机构名称</th>
+                    <th>教师</th>
+                    <th>开课时间</th>
+                    <th>进入查看</th>
+                </tr>
+                </thead>
+                <tbody th:if="${courseList!=null}" >
+                <tr th:each="list:${courseList}">
+                    <th th:text="${list.courseName}"></th>
+                    <th th:text="${list.courseDesc}"></th>
+                    <th th:text="${list.eduInstitution.eduInsName}"></th>
+                    <th th:text="${list.teacher.teacherName}"></th>
+                    <th th:text="${list.startDate}"></th>
+                    <th><a th:href="'/getCourse/'+${list.id}">点击查看</a></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

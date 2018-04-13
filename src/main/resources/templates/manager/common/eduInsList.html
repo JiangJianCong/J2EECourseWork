@@ -1,0 +1,28 @@
+<meta charset="UTF-8" />
+<div id="eduInsList">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>教育机构列表</caption>
+                <thead>
+                <tr>
+                    <th>教育机构Id</th>
+                    <th>教育机构名字</th>
+                    <th>教育机构描述</th>
+                    <th>教育机构地点</th>
+                    <th>教育机构银行</th>
+                </tr>
+                </thead>
+                <tbody th:if="${eduInsList!=null}" >
+                <tr th:each="list:${eduInsList}">
+                    <th><a th:text="${list.eduInsId}" th:href="'/manager/getEduIns/'+${list.id}"></a></th>
+                    <th th:text="${list.eduInsName}"></th>
+                    <th th:text="${list.eduInsDesc}"></th>
+                    <th th:text="${list.location}"></th>
+                    <th th:text="${list.bankAccount}"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

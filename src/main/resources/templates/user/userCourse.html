@@ -1,0 +1,27 @@
+<meta charset="UTF-8" />
+<div id="user_course">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>课程列表</caption>
+                <thead>
+                <tr>
+                    <th>课程Id</th>
+                    <th>课程名字</th>
+                    <th>课程老师</th>
+                    <th>机构名字</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${courseList!=null}" >
+                <tr th:each="list:${courseList}">
+                    <th th:text="${list.courseId}"></th>
+                    <th th:text="${list.courseName}"></th>
+                    <th th:text="${list.teacher.teacherName}"></th>
+                    <th th:text="${list.eduInstitution.eduInsName}"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

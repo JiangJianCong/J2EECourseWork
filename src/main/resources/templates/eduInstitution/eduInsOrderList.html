@@ -1,0 +1,37 @@
+<meta charset="UTF-8" />
+<div id="order_list">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>订单列表</caption>
+                <thead>
+                <tr>
+                    <th>订单Id</th>
+                    <th>订单时间</th>
+                    <th>用户Id</th>
+                    <th>课程Id</th>
+                    <th>订单金额</th>
+                    <th>订单状态</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${orderList!=null}" >
+                <tr th:each="list:${orderList}">
+                    <th th:text="${list.orderId}"></th>
+                    <th th:text="${list.orderDate}"></th>
+                    <th th:if="${list.user!=null}"><p th:text="${list.user.userName}"></p></th>
+                    <th th:if="${list.user==null}"><p >无会员下订单</p></th>
+                    <th th:text="${list.eduInsPlan.courseId}"></th>
+                    <th th:text="${list.consume}"></th>
+                    <!--订单状态-->
+                    <th th:if="${list.orderStatus=='0'}" ><p>未支付</p></th>
+                    <th th:if="${list.orderStatus=='1'}" ><p>已完成</p></th>
+                    <th th:if="${list.orderStatus=='2'}" ><p>订单失效</p></th>
+                    <th th:if="${list.orderStatus=='3'}" ><p>申请退款中</p></th>
+                    <th th:if="${list.orderStatus=='4'}" ><p>完成退款</p></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

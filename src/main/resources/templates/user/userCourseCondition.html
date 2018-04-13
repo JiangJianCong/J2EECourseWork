@@ -1,0 +1,28 @@
+<meta charset="UTF-8" />
+<div id="course_condition">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>点到情况</caption>
+                <thead>
+                <tr>
+                    <th>课程Id</th>
+                    <th>课程名字</th>
+                    <th>机构Id</th>
+                    <th>点到时间</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${recordList!=null}" >
+                <tr th:each="list:${recordList}">
+                    <th th:text="${list.eduInsPlan.courseId}"></th>
+                    <th th:text="${list.eduInsPlan.courseName}"></th>
+                    <th th:text="${list.eduInsId}"></th>
+                    <th th:text="${list.date}"></th>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

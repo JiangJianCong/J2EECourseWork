@@ -1,0 +1,27 @@
+<meta charset="UTF-8" />
+<div id="stu_choose">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+
+            <div th:if="${errorMessage!=null}">
+                <h1 th:text="${errorMessage}"></h1>
+            </div>
+
+            <form method="post" action="/userView/getStudentCourseList">
+                <input  type="text" name="studentId" placeholder="请输入学生学号"/>
+                <input type="submit" value="查看我的课程"/>
+            </form>
+
+            <form method="post" action="/userView/getCourseCondition">
+                <input  type="text" name="studentId" placeholder="请输入学生学号"/>
+                <input type="submit" value="查看我的点到情况"/>
+            </form>
+
+            <form method="post" action="/userView/getGrade">
+                <input  type="text" name="studentId" placeholder="请输入学生学号"/>
+                <input type="submit" value="查看我的学生成绩"/>
+            </form>
+
+        </div>
+    </div>
+</div>

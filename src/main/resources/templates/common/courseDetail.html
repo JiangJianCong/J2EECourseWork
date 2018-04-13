@@ -1,0 +1,66 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div id="course_detail">
+    <div class="uk-panel uk-panel-box">
+        <h2 th:text="${course.courseName}"></h2>
+        <div class="course_data uk-form-row">
+            <ul class="uk-list uk-list-line">
+                <li th:text="'课程id：'+${course.courseId}"></li>
+                <li th:text="'课程开始时间：'+${course.startDate}"></li>
+                <li th:text="'班级人数：'+${course.maxPeople}"></li>
+                <li th:text="'课程周数：'+${course.weeks}">课程周数：5</li>
+                <li id="choose_list_num" th:value="${course.weekTimes}" th:text="'每周课程数：'+${course.weekTimes}">每周课程数：5</li>
+                <li th:text="'课程费用：'+${course.price}">课程费用：10000</li>
+                <li th:text="'课程描述：'+${course.courseDesc}">课程描述：课程描述</li>
+                <li th:text="'所属机构：'+${course.eduInstitution.eduInsName}"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="uk-panel uk-panel-box" style="margin-top: 10px">
+        <div class="uk-form-row teacher_data" >
+            <h3 th:text="'老师名字：'+${course.teacher.teacherName}"></h3>
+            <p th:text="'老师名字：'+${course.teacher.teacherDesc}"></p>
+        </div>
+    </div>
+
+
+    <!--下订单界面-->
+    <form class="user_order_form" action="/order/userMakeOrder" method="post" accept-charset="UTF-8" >
+        <div class="uk-panel uk-panel-box order_list"  style="margin-top: 10px">
+            <h1>立即报名</h1>
+            <div class="uk-form-row">
+                <button type="button" onclick="addNewStudent()">添加一个学生</button>
+            </div>
+            <div class="uk-form-row stu_list" >
+                <div class="one_stu uk-form-row" style="margin-top: 5px">
+
+                    <label>学生学号：</label>
+                    <input class="stu_num" type="text" placeholder="请输入学号" name="studentId"/>
+                    <label>学生名字：</label>
+                    <input class="stu_name" type="text" placeholder="请输入名字" name="studentName"/>
+                    <select class="choose_list uk-form-select" onchange="test(this)" onclick="test($(this))">
+                        <option th:each="i:${#numbers.sequence(1,course.weekTimes)}" th:value="${i}" th:text="${i}"></option>
+                    </select>
+                    <button type="button" onclick="closeThis($(this).parent())"><i class="uk-icon-close">删除此学生</i></button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="stuList" class="submit_stu_list"/>
+        <input type="hidden" name="choCourseList" class="submit_cho_course"/>
+        <input type="hidden" name="eduInsPlan.id" th:value="${course.id}"/>
+        <input type="hidden" name="eduInsId" th:value="${course.eduInstitution.eduInsId}"/>
+
+
+
+
+        <div class="uk-panel uk-panel-box"  style="margin-top: 10px">
+            <div class="uk-form-row user_apply">
+                <label>价钱：</label>
+                <input name="bySite" type="text" value="f" style="visibility: collapse"/>
+                <input name="consume" type="text" disabled="disabled" class="order_price" th:value="${course.price}" th:attr="price=${course.price} "/>
+                <input type="button" onclick="return makeOrder()" value="立即报名"/>
+            </div>
+        </div>
+    </form>
+</div>

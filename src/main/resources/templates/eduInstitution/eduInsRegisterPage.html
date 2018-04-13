@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>机构注册</title>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/uikit.css" />
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/static/uikit-2.25.0/js/uikit.js"></script>
+</head>
+<body class="uk-height-1-1">
+
+<div class="uk-vertical-align  uk-height-1-1" style="margin-left: 30%">
+    <div class="uk-vertical-align-middle" style="width: 500px;margin-top: 200px;margin-bottom: 200px">
+
+        <div class="uk-alert" style="width: 480px;text-align: center">机构注册</div>
+
+        <form class="uk-form-horizontal uk-panel uk-panel-box uk-form" action="/eduInsRegister" method="post" accept-charset="UTF-8">
+            <div class="uk-form-row">
+                <label class="uk-form-label " for="account">机构名字：</label>
+                <div class="uk-form-controls">
+                    <input id="account" class=" uk-width-1-1" type="text" placeholder="请输入机构名字" name="eduInsName"/>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="password">密码：</label>
+                <div class="uk-form-controls">
+                    <input id="password" class="uk-width-1-1" type="password" placeholder="请输入密码" name="password"/>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="user_name">机构地址：</label>
+                <div class="uk-form-controls">
+                    <input id="user_name" class="uk-width-1-1 " type="text" placeholder="请输入机构地址" name="location"/>
+                </div>
+            </div>
+
+
+
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="email">银行账户：</label>
+                <div class="uk-form-controls">
+                    <input id="email" class="uk-width-1-1" type="text" placeholder="请输入邮箱" name="bankAccount"/>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="user_desc">机构描述：</label>
+                <div class="uk-form-controls">
+                    <textarea id="user_desc" class="uk-width-1-1" type="password" placeholder="请输入机构的描述" name="eduInsDesc"> </textarea>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <div th:if="${errorMessage!=null}" class="uk-alert-danger" data-uk-alert="">
+                    <a href="" class="uk-alert-close uk-close"></a>
+                    <p th:text="${errorMessage}"></p>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <input type="submit" value="注册" class="uk-width-1-1 uk-button uk-button-primary uk-button-large" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

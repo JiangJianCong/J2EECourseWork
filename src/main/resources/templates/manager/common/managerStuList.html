@@ -1,0 +1,22 @@
+<meta charset="UTF-8" />
+<div id="stu_list">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>教育机构列表</caption>
+                <thead>
+                <tr>
+                    <th>学生编号</th>
+                    <th>学生名字</th>
+                </tr>
+                </thead>
+                <tbody th:if="${sl!=null}" >
+                <tr th:each="list:${sl}">
+                    <th th:text="${list.studentId}"></th>
+                    <th th:text="${list.studentName}"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

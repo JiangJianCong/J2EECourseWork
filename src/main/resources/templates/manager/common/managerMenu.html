@@ -1,0 +1,61 @@
+<meta charset="UTF-8" />
+<div id="m">
+<div class="manager_bar uk-panel" style="word-break: break-all">
+    <div class="uk-panel uk-panel-box">
+
+        <h3 class="uk-panel-title">管理导航</h3>
+        <ul class="uk-nav uk-nav-side uk-nav-parent-icon" data-uk-nav="">
+            <li class="uk-parent">
+                <a href="#">会员管理</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="/manager/getAllUser">会员资料</a></li>
+                    <li><a href="#">会员订单</a></li>
+                </ul>
+
+            </li>
+            <li class="uk-parent">
+                <a href="#">人员管理</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="/manager/teacherList">所有教师</a></li>
+                    <li><a href="/manager/studentList">所有学生</a></li>
+                </ul>
+            </li>
+            <li class="uk-parent">
+                <a href="#">机构管理</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="/manager/getAllEduIns">机构总览</a></li>
+                    <li><a th:href="'/manager/getAllRegisterEduIns'">机构申请列表</a></li>
+                    <li><a th:href="'/manager/getAllModifyEduIns'">机构修改列表</a></li>
+                </ul>
+            </li>
+
+            <li class="uk-parent">
+                <a href="#">订单总览</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="/manager/getAllOrderList">全部订单</a></li>
+
+                </ul>
+            </li>
+
+            <li class="uk-parent">
+                <a href="#">财务状况</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="/manager/getCondition">全部财务</a></li>
+
+                </ul>
+            </li>
+
+
+            <!--<li><a href="#">Item</a></li>-->
+
+            <!--<li class="uk-nav-header">Header</li>-->
+            <!--<li class="uk-parent"><a href="#"><i class="uk-icon-star"></i> Parent</a></li>-->
+            <!--<li><a href="#"><i class="uk-icon-twitter"></i> Item</a></li>-->
+            <!--<li class="uk-nav-divider"></li>-->
+            <!--<li><a href="#"><i class="uk-icon-rss"></i> Item</a></li>-->
+        </ul>
+
+    </div>
+
+</div>
+</div>

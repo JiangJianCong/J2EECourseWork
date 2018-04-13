@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/uikit.css" />
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/static/uikit-2.25.0/js/uikit.js"></script>
+    <script src="/static/js/Index.js"></script>
+</head>
+<style>
+
+    .course_list {
+        margin-left: 10%;
+        margin-right: 10%;
+
+    }
+    .sort-menu{
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-bottom: 20px;
+        margin-top: 5px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;;
+    }
+    .sort-menu-list{
+        margin-top: 20px;
+    }
+
+    .sort-menu-list dl dt{
+        float: left;
+    }
+    .sort-menu-list dl dd{
+        float: left;
+        margin-left: 50px;
+    }
+    #course_list table tr th {
+        text-align: center;
+        border: 1px solid #1a1a1a;
+    }
+
+</style>
+<body>
+
+<div class="uk-container uk-container-center">
+
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-1">
+            <div th:include="common/mainTop::#index_top"></div>
+        </div>
+    </div>
+
+    <div class="uk-form-row" style="margin-top: 15px;margin-left: 10%">
+        <a href="/index">全部课程</a>&nbsp;/
+        <a href="/getAllEduInsList">教育机构</a>
+    </div>
+
+    <div style="margin-top: 5px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+        <div class=" sort-menu uk-width-4-5">
+            <div class="sort-menu-list" id="course_menu_list" th:if="${courseList!=null}">
+                <dl>
+                    <dt>全部类型</dt>
+                    <dd>奥数</dd>
+                    <dd>编程</dd>
+                    <dd>语文</dd>
+                    <dd>外语</dd>
+                    <dd>体育</dd>
+                </dl>
+            </div>
+            <div class="sort-menu-list" id="edu_ins_menu_list" th:if="${eduInsList!=null}">
+                <dl>
+                    <dt>全部机构</dt>
+                </dl>
+            </div>
+    </div>
+</div>
+
+<div style="margin-top: 20px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+    <div class=" course_list uk-width-4-5">
+        <div th:if="${mainPage!=null}">
+            <div th:include="${mainPage}::${mainPageKey}"></div>
+        </div>
+        <div th:if="${mainPage==null}">
+            <h1> 首页</h1>
+        </div>
+
+
+    </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

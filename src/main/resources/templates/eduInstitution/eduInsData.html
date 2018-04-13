@@ -1,0 +1,53 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div class="main_data uk-panel" id="edu_ins_data">
+    <div class="uk-panel uk-panel-box">
+        <form class="uk-form uk-form-horizontal uk-panel ">
+            <fieldset>
+                <legend>机构详细信息</legend>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="edu_ins_id">机构Id：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="edu_ins_id" name="eduInsId" th:value="${eduInstitution.eduInsId}" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="edu_ins_name">机构名字：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="edu_ins_name" name="eduInsName" th:value="${eduInstitution.eduInsName}" disabled="disabled"/>
+                        <input type="text" id="edu_ins_wait_name" name="eduInsWaitName"  th:if="${eduInsWait!=null}" th:value="${eduInsWait.eduInsName}+'(等待修改)'"  disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="edu_ins_location_modify">机构地点</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="edu_ins_location_modify" name="location" th:value="${eduInstitution.location}" disabled="disabled"/>
+                        <input type="text" id="edu_ins_wait_location" name="eduInsWaitLocation"  th:if="${eduInsWait!=null}" th:value="${eduInsWait.location}+'(等待修改)'"  disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="bank_account">机构收帐银行</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="bank_account" name="bankAccount" th:value="${eduInstitution.bankAccount}" disabled="disabled"/>
+                        <input type="text" id="Wait_bank_account" name="waitBankAccount"  th:if="${eduInsWait!=null}" th:value="${eduInsWait.bankAccount}+'(等待修改)'"  disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="edu_ins_desc">机构基本描述</label>
+                    <div class="uk-form-controls">
+                        <textarea id="edu_ins_desc" name="eduInsDesc" disabled="disabled" th:text="${eduInstitution.eduInsDesc}" ></textarea>
+                        <textarea style="margin-left: 20px" id="edu_ins_wait_desc" name="eduInsWaitDesc" disabled="disabled" th:if="${eduInsWait!=null}" th:text="${eduInsWait.eduInsDesc}" ></textarea>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <button  class="uk-button" onclick="return allowModify($(this).next())">编辑</button>
+                    <button style="display: none" class="uk-button" onclick="return modifyEduInsData($(this))">确认</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script>
+
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>管理员主页</title>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/uikit.css" />
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/static/uikit-2.25.0/js/uikit.js"></script>
+</head>
+<style>
+
+    .manager_bar div ul li ul{
+        margin-left: 10px;
+    }
+    .data_table table tr th{
+        text-align: center;
+    }
+
+</style>
+<body>
+<div class="uk-container uk-container-center">
+
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-1">
+            <div style="background-color: #c11a39;margin-top: 20px">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div style="margin-top: 20px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+        <div class="uk-width-medium-1-4" >
+            <div th:include="manager/common/managerMenu::#m"></div>
+
+        </div>
+        <!--<hr class="uk-grid-divider">-->
+        <div class="uk-width-medium-3-4 " >
+            <div th:if="${mainPage!=null}">
+                <div class="data_table" th:include="${mainPage}::${mainPageKey}"></div>
+            </div>
+            <div th:if="${mainPage==null}">
+                <h1> 首页</h1>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

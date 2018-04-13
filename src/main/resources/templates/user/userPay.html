@@ -1,0 +1,85 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div id="user_pay">
+    <div class="uk-panel uk-panel-box">
+        <h2>用户支付页面</h2>
+        <div class="course_data uk-form-row">
+            <ul class="uk-list uk-list-line">
+                <li th:text="'订单id：'+${order.orderId}"></li>
+                <li th:text="'用户：'+${order.user.userName}"></li>
+                <li th:text="'教育机构：'+${order.eduInsId}"></li>
+                <li th:text="'课程名字：'+${order.eduInsPlan.courseName}"></li>
+                <li th:text="'总共费用：'+${order.consume}"></li>
+                <li th:if="${order.students!=null}">
+                    <table>
+                        <caption>学生列表</caption>
+                        <thead>
+                            <tr>
+                                <th>学生学号</th>
+                                <th>学生名字</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="list:${order.students}">
+                                <th th:text="${list.studentId}"></th>
+                                <th th:text="${list.studentName}"></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+
+                <li th:text="'下单时间：'+${order.orderDate}"></li>
+                <li>请在15分钟内完成订单</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="uk-panel-box uk-panel" style="margin-top: 5px" th:if="${payMessage!=null}">
+        <h3 th:text="${payMessage}"></h3>
+    </div>
+
+    <div class="uk-panel uk-panel-box" style="margin-top: 10px">
+        <div class="uk-form-row teacher_data" >
+
+            <div th:if="${order.orderStatus=='0'}">
+                <form action="/order/userPay" method="post">
+                    <label>订单未付款</label>
+                    <input type="text" style="visibility: hidden" th:value="${order.id}" name="oid" />
+                    <div class="uk-form-row">
+                        <label for="bank_account">银行账号：</label>
+                        <input type="text" id="bank_account" placeholder="bankAccount"  name="account" />
+                    </div>
+                    <div class="uk-form-row" style="margin-top: 5px">
+                        <label for="bank_psd">银行密码：</label>
+                        <input type="password" id="bank_psd"  placeholder="bankPassword" name="password" />
+                    </div>
+                    <input type="submit" value="付款" />
+                </form>
+            </div>
+            <div th:if="${order.orderStatus=='1'}">
+                <h1 class="uk-h1"> 订单已完成</h1>
+                <form action="/order/userRefund" style="margin-top: 5px" method="post">
+                    <label for="refund_account">收款账号</label>
+                    <input type="text" id="refund_account" name="bankAccount" />
+                    <input type="text" style="visibility: hidden" th:value="${order.id}" name="oid" />
+                    <input type="submit" value="退单" />
+                </form>
+            </div>
+            <div th:if="${order.orderStatus=='2'}">
+                <div class="uk-form-row" style="margin-top: 5px">
+                    <label for="bank_psd">支付超时，请重下订单：</label>
+                </div>
+            </div>
+
+            <div th:if="${order.orderStatus=='3'}">
+                <div class="uk-form-row" style="margin-top: 5px">
+                    <h1 class="uk-h1">申请退款中</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

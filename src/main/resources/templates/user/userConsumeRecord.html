@@ -1,0 +1,46 @@
+<meta charset="UTF-8" />
+<div id="user_consume_record">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>财务状况</caption>
+                <thead>
+                <tr>
+                    <th>订单编号</th>
+                    <th>发款账号</th>
+                    <th>收款账号</th>
+                    <th>总数</th>
+                    <th>是否完成</th>
+                    <th>类型</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${payRecordList!=null}" >
+                <tr th:each="list:${payRecordList}">
+                    <th th:text="${list.order.orderId}"></th>
+                    <th th:text="${list.fromAccount}"></th>
+                    <th th:text="${list.toAccount}"></th>
+                    <th th:text="${list.amount}"></th>
+                    <th th:if="${list.finish}"><p>完成</p></th>
+
+                    <th th:if="${!list.finish}">
+                        <p>未完成</p>
+                    </th>
+
+                    <th th:if="${list.type=='1'}" ><p>用户付款</p></th>
+                    <th th:if="${list.type=='2'}" ><p>用户线下付款</p></th>
+                    <th th:if="${list.type=='3'}" ><p>管理员发放机构</p></th>
+                    <th th:if="${list.type=='4'}" ><p>退款</p></th>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div class="uk-panel uk-panel-box">
+        <h1 th:text="'消费：'+${money}"></h1>
+    </div>
+</div>

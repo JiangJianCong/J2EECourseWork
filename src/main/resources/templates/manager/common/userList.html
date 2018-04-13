@@ -1,0 +1,36 @@
+<meta charset="UTF-8" />
+<div id="userList">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table" style="text-align: center">
+                <caption>会员列表</caption>
+                <thead>
+                <tr>
+                    <th>会员账号</th>
+                    <th>会员姓名</th>
+                    <th>会员性别</th>
+                    <th>会员邮箱</th>
+                    <th>会员资格</th>
+                    <th>会员积分</th>
+                    <th>会员描述</th>
+                    <th>取消会员</th>
+                </tr>
+                </thead>
+                <tbody th:if="${userList!=null}">
+                    <tr th:each="list:${userList}">
+                        <th><a th:text="${list.account}" th:href="'/manager/getUser/'+${list.id}"></a></th>
+                        <th th:text="${list.userName}"></th>
+                        <th th:text="${list.sex}"></th>
+                        <th th:text="${list.email}"></th>
+                        <th th:if="${list.memberStatus}">是</th>
+                        <th th:unless="${list.memberStatus}">否</th>
+                        <th th:text="${list.point}"></th>
+                        <th th:text="${list.userDesc}"></th>
+                        <th><a th:text="'取消会员'" th:href="'/manager/cancelMember/'+${list.id}"></a></th>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

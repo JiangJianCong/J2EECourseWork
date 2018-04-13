@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+</head>
+<body>
+
+<form action="/accountManager/login" name="loginfrom" accept-charset="utf-8" method="post">
+    <label class="label-tips" for="u">账号:</label>
+    <input type="text" id="account" name="account" class="inputstyle"/>
+    <div>
+        <label class="lable-tips" for="password">密码:</label>
+        <input type="password" id="password" name="password" class="inputstyle" />
+    </div>
+    <input type="submit" name="登录"/>
+    <a href="/register" class="zcxy" target="_blank">注册</a>
+</form>
+
+<h1>教育机构注册</h1>
+<form action="/eduIns/register" name="edu_ins_register" accept-charset="utf-8" method="post">
+    <label class="label-tips">机构名字:</label>
+    <input type="text" id="eduInsName" name="eduInsName" class="inputstyle" />
+    <div>
+        <label class="lable-tips" for="password">密码:</label>
+        <input type="password" id="eduInsPsd" name="password" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="eduInsDesc">机构信息:</label>
+        <input type="text" id="eduInsDesc" name="eduInsDesc" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" >地点:</label>
+        <input type="text" id="location" name="location" class="inputstyle" />
+    </div>
+
+    <input type="submit" name="注册">
+</form>
+
+
+<h1>教育机构修改</h1>
+<form action="/eduIns/update" name="edu_ins_register" accept-charset="utf-8" method="post">
+    <label class="label-tips">机构名字:</label>
+    <input type="text" id="eduInsNameM" name="eduInsName" class="inputstyle" />
+    <div>
+        <label class="lable-tips" for="password">机构代码:</label>
+        <input type="text" id="eduInsId" name="eduInsId" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="password">密码:</label>
+        <input type="password" id="eduInsPsdM" name="password" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="eduInsDesc">机构信息:</label>
+        <input type="text" id="eduInsDescM" name="eduInsDesc" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" >地点:</label>
+        <input type="text" id="locationM" name="location" class="inputstyle" />
+    </div>
+
+    <input type="submit" name="修改">
+</form>
+
+
+
+
+
+
+<h1>教育机构发布计划</h1>
+<form action="/eduIns/issuePlan" name="edu_ins_issue_plan" accept-charset="utf-8" method="post">
+    <div>
+        <label class="lable-tips" for="password">课程名称</label>
+        <input type="text" id="course_name" name="courseName" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">课程描述</label>
+        <input type="text" id="course_desc" name="courseDesc" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">机构id</label>
+        <input type="text" id="edu_ins_id" name="eduInsId" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">每周次数</label>
+        <input type="text" id="week_times" name="weekTimes" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">总共周数</label>
+        <input type="text" id="weeks" name="weeks" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">教师id</label>
+        <input type="text" id="teacher_id" name="teacherId" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">最大人数</label>
+        <input type="text" id="max_people" name="maxPeople" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">价格</label>
+        <input type="text" id="price" name="price" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="password">开始时间</label>
+        <input type="text" id="start_date" name="startDate" class="inputstyle" />
+    </div>
+
+    <input type="submit" name="修改">
+</form>
+
+
+<h1>教育机构修改计划</h1>
+<form action="/eduIns/updatePlan" name="edu_ins_update_plan" accept-charset="utf-8" method="post">
+    <div>
+        <label class="lable-tips" for="password">课程名称</label>
+        <input type="text"  name="courseName" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">课程代码</label>
+        <input type="text"  name="courseId" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">课程描述</label>
+        <input type="text"  name="courseDesc" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">机构id</label>
+        <input type="text"  name="eduInsId" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">每周次数</label>
+        <input type="text"  name="weekTimes" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">总共周数</label>
+        <input type="text"  name="weeks" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">教师id</label>
+        <input type="text"  name="teacherId" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">最大人数</label>
+        <input type="text" name="maxPeople" class="inputstyle" />
+    </div>
+
+    <div>
+        <label class="lable-tips" for="password">价格</label>
+        <input type="text"  name="price" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="password">开始时间</label>
+        <input type="text"  name="startDate" class="inputstyle" />
+    </div>
+
+    <input type="submit" name="修改">
+</form>
+
+<h1>课堂登记</h1>
+<form action="/eduIns/courseCheck" name="edu_ins_register" accept-charset="utf-8" method="post">
+    <label class="label-tips">课程id:</label>
+    <input type="text"  name="courseId" class="inputstyle" />
+    <div>
+        <label class="lable-tips" for="password">机构Id:</label>
+        <input type="text"  name="eduInsId" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="password">学生id:</label>
+        <input type="text"  name="studentId" class="inputstyle" />
+    </div>
+    <div>
+        <label class="lable-tips" for="eduInsDesc">日期:</label>
+        <input type="text"  name="date" class="inputstyle" />
+    </div>
+
+    <input type="submit" name="修改">
+</form>
+
+
+<h1>取消会员资格</h1>
+<form action="/manager/cancelMember" name="edu_ins_register" accept-charset="utf-8" method="post">
+
+    <div>
+        <label class="lable-tips" for="password">会员Id:</label>
+        <input type="text"  name="userId" class="inputstyle" />
+    </div>
+
+
+    <input type="submit" name="修改">
+</form>
+
+
+<h1>经理审核机构注册</h1>
+<form action="/manager/cancelMember" name="edu_ins_register" accept-charset="utf-8" method="post">
+
+    <div>
+        <label class="lable-tips" for="password">会员Id:</label>
+        <input type="text"  name="userId" class="inputstyle" />
+    </div>
+
+
+    <input type="submit" name="修改">
+</form>
+
+</body>
+</html>

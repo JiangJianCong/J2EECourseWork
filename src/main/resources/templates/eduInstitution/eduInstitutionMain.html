@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>教育机构主页</title>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/uikit.css" />
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+
+    <script src="/static/uikit-2.25.0/js/uikit.js"></script>
+    <script src="/static/js/EduInsJS.js"></script>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/components/datepicker.css" />
+    <script src="/static/uikit-2.25.0/js/components/datepicker.js"></script>
+    <script src="/static/js/Index.js"></script>
+</head>
+<style>
+    .main_block .manager_bar{
+        background-color: #00a8e6;
+    }
+
+    .manager_bar div ul li ul{
+        margin-left: 10px;
+    }
+
+    #edu_ins_id,#edu_ins_name,#edu_ins_location_modify,#edu_ins_desc,#bank_account
+    ,#edu_ins_wait_name,#edu_ins_wait_location,#edu_ins_wait_desc,#Wait_bank_account{
+        background: #f5f5f5;
+        border: 0px solid #dddddd;
+
+    }
+
+    .main_data table tr th{
+        text-align: center;
+        border: 1px solid #1a1a1a;
+    }
+
+</style>
+
+
+<body>
+<div class="uk-container uk-container-center">
+
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-1">
+            <div style="margin-top: 20px">
+                <h1 style="font-size: 20px">教育机构首页</h1>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="margin-top: 20px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+        <div class="uk-width-medium-1-4" >
+            <div id="eduInsMenu">
+                <div class="manager_bar uk-panel" style="word-break: break-all">
+                    <div class="uk-panel uk-panel-box">
+
+                        <h3 class="uk-panel-title">管理导航</h3>
+                        <ul class="uk-nav uk-nav-side uk-nav-parent-icon" data-uk-nav="">
+                            <li class="uk-parent">
+                                <a href="#">机构信息</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="/eduInsView/">机构基本资料</a></li>
+                                </ul>
+
+                            </li>
+                            <li class="uk-parent">
+                                <a href="#">订单管理</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="/eduInsView/getOrderList">所有订单</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a href="#">人员管理</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="/eduInsView/getTeacherList">所有教师</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a href="#">课程管理</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="/eduInsView/issuePlanPage">发布课程</a></li>
+                                    <li><a href="/eduInsView/getAllCourseList">所有课程</a></li>
+                                    <li><a href="/eduInsView/courseRecordPage">听课登记</a></li>
+                                    <li><a href="/eduInsView/getCourseCondition">听课记录</a></li>
+                                    <li><a href="/eduInsView/gradeRecordPage">成绩登记</a></li>
+                                    <li><a href="/eduInsView/getGradePage">成绩查看</a></li>
+
+
+                                </ul>
+                            </li>
+
+                            <li class="uk-parent">
+                                <a href="#">财务管理</a>
+                                <ul class="uk-nav-sub">
+                                    <li><a href="/eduInsView/financialCondition">财务状况</a></li>
+                                </ul>
+                            </li>
+                            <!--<li><a href="#">Item</a></li>-->
+
+                            <!--<li class="uk-nav-header">Header</li>-->
+                            <!--<li class="uk-parent"><a href="#"><i class="uk-icon-star"></i> Parent</a></li>-->
+                            <!--<li><a href="#"><i class="uk-icon-twitter"></i> Item</a></li>-->
+                            <!--<li class="uk-nav-divider"></li>-->
+                            <!--<li><a href="#"><i class="uk-icon-rss"></i> Item</a></li>-->
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--<hr class="uk-grid-divider">-->
+        <div class="uk-width-medium-3-4 " >
+            <div th:if="${mainPage!=null}">
+                <div class="data_table" th:include="${mainPage}::${mainPageKey}"></div>
+            </div>
+            <div th:if="${mainPage==null}">
+                <h1> 首页</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+<script>
+
+</script>
+
+
+</html>

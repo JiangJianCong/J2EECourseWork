@@ -1,0 +1,8 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div class="main_data uk-panel" id="success_message">
+    <div class="uk-panel uk-panel-box">
+        <h1 th:text="${successMessage}"></h1>
+        <h2><a th:href="${backLink}"  th:if="${backLink!=null}">返回</a></h2>
+    </div>
+</div>

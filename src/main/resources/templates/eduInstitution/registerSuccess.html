@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>注册结果</title>
+</head>
+<body>
+
+<div th:if="${eduIns}!=null">
+    <h1>恭喜注册成功</h1>
+    <p>等待管理员通过，请记住机构编号：<p th:text="${message}"></p>注册成功 </p>
+</div>
+
+<div th:if="${message}==null">
+    <h1>失败，请重新操作</h1>
+</div>
+</body>
+</html>

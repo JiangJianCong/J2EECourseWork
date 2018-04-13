@@ -1,0 +1,83 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div class="main_data uk-panel" id="user_data">
+    <div class="uk-panel uk-panel-box">
+        <form class="uk-form uk-form-horizontal uk-panel" >
+            <fieldset>
+                <legend>用户信息</legend>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_name">用户名字</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="user_name" name="userName" th:value="${user.userName}" disabled="disabled"/>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_account">用户账号：</label>
+                    <div class="uk-form-controls">
+                        <input th:attr="userId=${user.id}" type="text" id="user_account" name="account" th:value="${user.account}" disabled="disabled" />
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_password">用户密码：</label>
+                    <div class="uk-form-controls">
+                        <input  type="password" id="user_password" name="password" th:value="${user.password}" disabled="disabled" />
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_email">邮箱：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="user_email" name="email" th:value="${user.email}" disabled="disabled"/>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_point">用户积分：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="user_point" name="point" th:value="${user.point}" disabled="disabled"/>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_sex">性别：</label>
+                    <div class="uk-form-controls">
+                        <select th:value="${user.sex}" id="user_sex" name="sex" disabled="disabled">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_member_status">用户会员状态：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="user_member_status" name="member_status" th:value="${user.memberStatus}" disabled="disabled"/>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_consume_record">消费记录：</label>
+                    <div class="uk-form-controls">
+                        <input type="text" id="user_consume_record" name="consumeRecord" th:value="${user.consumeRecord}" disabled="disabled"  />
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="user_desc">用户描述：</label>
+                    <div class="uk-form-controls">
+                        <textarea type="text" id="user_desc" name="consumeRecord" th:text="${user.userDesc}" disabled="disabled"  ></textarea>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
+                    <button  class="uk-button" onclick="return allowModify($(this).next())">编辑</button>
+                    <button type="button" style="display: none" class="uk-button" onclick="return modifyUserData()">确认</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script>
+
+
+</script>

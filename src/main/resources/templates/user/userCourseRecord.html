@@ -1,0 +1,33 @@
+<meta charset="UTF-8" />
+<div id="course_record">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption>上课情况</caption>
+                <thead>
+                <tr>
+                    <th>订单Id</th>
+                    <th>订单时间</th>
+                    <th>机构Id</th>
+                    <th>课程Id</th>
+                    <th>订单金额</th>
+                    <th>订单状态</th>
+                    <th>订单选择</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${orderList!=null}" >
+                <tr th:each="list:${orderList}">
+                    <th th:text="${list.orderId}"></th>
+                    <th th:text="${list.startDate}"></th>
+                    <th th:text="${list.eduInsId}"></th>
+                    <th th:text="${list.eduInsPlan.courseId}"></th>
+                    <th th:text="${list.consume}"></th>
+                    <th th:text="${list.orderStatus}"></th>
+                    <th> <button onclick="alert('退订')"><a>退订</a></button></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

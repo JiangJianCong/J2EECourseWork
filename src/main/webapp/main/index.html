@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/uikit-2.25.0/css/uikit.css" />
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/static/uikit-2.25.0/js/uikit.js"></script>
+</head>
+<style>
+
+    .course_list {
+        margin-left: 10%;
+        margin-right: 10%;
+
+    }
+    .sort-menu{
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-bottom: 20px;
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;;
+    }
+    .sort-menu-list{
+        margin-top: 20px;
+    }
+
+    .sort-menu-list dl dt{
+        float: left;
+    }
+    .sort-menu-list dl dd{
+        float: left;
+        margin-left: 50px;
+    }
+    #course_list table tr th {
+        text-align: center;
+        border: 1px solid #1a1a1a;
+    }
+
+</style>
+<body>
+
+<div class="uk-container uk-container-center">
+
+    <div class="uk-grid">
+        <div class="uk-width-medium-1-1">
+            <div style="margin-top: 20px">
+                <div class="top-search uk-grid uk-panel-box" >
+                    <div class="uk-width-1-3">
+                        <h2 class="uk-icon-graduation-cap" style="margin-top: 4px">爱上课教育课堂</h2>
+                    </div>
+                    <div class="uk-width-1-3">
+                        <form class="uk-form uk-margin-remove uk-display-inline-block">
+                            <select>
+                                <option>课程</option>
+                                <option>机构</option>
+                            </select>
+                            <input type="text" placeholder="输入关键走">
+                            <button class="uk-button uk-button-primary">查询</button>
+                        </form>
+                    </div>
+                    <div class="uk-width-1-3">
+                        <div style="margin-left: 20px;margin-top: 4px">
+                            <a>用户登陆</a>&nbsp;/
+                            <a>机构登陆</a>&nbsp;/
+                            <a>管理员登陆</a>
+
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+        <div class=" sort-menu uk-width-4-5">
+            <div class="sort-menu-list" id="course_menu_list">
+                <dl>
+                    <dt>全部类型</dt>
+                    <dd>奥数</dd>
+                    <dd>编程</dd>
+                    <dd>语文</dd>
+                    <dd>外语</dd>
+                    <dd>体育</dd>
+                </dl>
+            </div>
+            <div class="sort-menu-list" id="edu_ins_menu_list"">
+                <dl>
+                    <dt>全部机构</dt>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px" class="uk-grid uk-grid-match uk-grid-small main_block " data-uk-grid-match="{target:'.uk-panel'}">
+        <div class=" course_list uk-width-4-5">
+            <div id="course_list">
+                <div class="main_data uk-panel ">
+                    <div class="uk-panel uk-panel-box">
+                        <table class="uk-table">
+                            <caption style="font-size: 15px">课程列表</caption>
+                            <thead>
+                            <tr>
+                                <th>课程名字</th>
+                                <th>课程描述</th>
+                                <th>教师</th>
+                                <th>开课时间</th>
+                                <th>进入查看</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>化石篮球</th>
+                                    <th>教人打篮球</th>
+                                    <th>刘德发</th>
+                                    <th>2018-09-09</th>
+                                    <th><button class="uk-button" type="button"> 查看详情</button></th>
+                                </tr>
+
+                            </tbody>
+                            <tbody th:if="${courseList!=null}" >
+                            <tr th:each="list:${courseList}">
+                                <th th:text="${list.courseId}"></th>
+                                <th th:text="${list.courseName}"></th>
+                                <th th:text="${list.courseDesc}"></th>
+                                <th th:text="${list.maxPeople}"></th>
+                                <th th:text="${list.startDate}"></th>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

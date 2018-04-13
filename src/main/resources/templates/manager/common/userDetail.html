@@ -1,0 +1,101 @@
+<meta charset="UTF-8" />
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<div id="user_detail">
+    <div class="uk-panel uk-panel-box">
+        <h2 th:text="${user.userName}"></h2>
+        <div class="edu_ins_data uk-form-row">
+            <ul class="uk-list uk-list-line">
+
+
+                <li th:text="'用户账号：'+${user.account}"></li>
+                <li th:text="'用户邮箱：'+${user.email}"></li>
+                <li th:text="'用户名字：'+${user.userName}"></li>
+                <li th:text="'用户性别：'+${user.sex}"></li>
+                <li th:text="'用户描述：'+${user.userDesc}"></li>
+                <li th:text="'会员积分：'+${user.point}"></li>
+                <li th:text="'消费记录：'+${user.consumeRecord}"></li>
+                <li th:if="${user.memberStatus==true}">会员</li>
+                <li th:if="${user.memberStatus==false}">非会员</li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="uk-panel uk-panel-box" style="margin-top: 10px">
+        <div class="uk-form-row order_data" >
+
+            <table class="uk-table">
+                <caption>订单列表</caption>
+                <thead>
+                <tr>
+                    <th>订单Id</th>
+                    <th>订单时间</th>
+                    <th>用户名字</th>
+                    <th>课程名字</th>
+                    <th>订单金额</th>
+                    <th>订单状态</th>
+                    <th>订单选择</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${user.orders!=null}" >
+                <tr th:each="list:${user.orders}">
+                    <th th:text="${list.orderId}"></th>
+                    <th th:text="${list.orderDate}"></th>
+                    <th th:text="${list.user.userName}"></th>
+                    <th th:text="${list.eduInsPlan.courseName}"></th>
+                    <th th:text="${list.consume}"></th>
+                    <th th:if="${list.orderStatus=='0'}" ><p>未支付</p></th>
+                    <th th:if="${list.orderStatus=='1'}" ><p>已完成</p></th>
+                    <th th:if="${list.orderStatus=='2'}" ><p>订单失效</p></th>
+                    <th th:if="${list.orderStatus=='3'}" ><p>申请退款中</p></th>
+                    <th th:if="${list.orderStatus=='4'}" ><p>完成退款</p></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="uk-panel uk-panel-box" style="margin-top: 10px">
+        <div class="uk-form-row pay_data" >
+            <table class="uk-table">
+                <caption>财务清单</caption>
+                <thead>
+                <tr>
+                    <th>订单Id</th>
+                    <th>转账人</th>
+                    <th>收款人</th>
+                    <th>金钱数</th>
+                    <th>是否完成</th>
+                    <th>转账类型</th>
+
+                </tr>
+                </thead>
+                <tbody th:if="${payRecordList!=null}" >
+                <tr th:each="list:${payRecordList}">
+                    <th th:text="${list.order.orderId}"></th>
+                    <th th:text="${list.fromAccount}"></th>
+                    <th th:text="${list.toAccount}"></th>
+                    <th th:text="${list.amount}"></th>
+
+
+
+                    <th th:if="${list.finish==true}">完成</th>
+                    <th th:if="${list.finish==false}">未完成</th>
+
+
+                    <th th:if="${list.type=='1'}" ><p>用户付款</p></th>
+                    <th th:if="${list.type=='2'}" ><p>用户线下付款</p></th>
+                    <th th:if="${list.type=='3'}" ><p>管理员发放机构</p></th>
+                    <th th:if="${list.type=='4'}" ><p>退款</p></th>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <!--下订单界面-->
+</div>

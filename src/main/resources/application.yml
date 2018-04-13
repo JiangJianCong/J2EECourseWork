@@ -1,0 +1,35 @@
+server:
+  port: 8888
+  context-path: /
+
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/TrainingCollege
+      username: root
+      password: root
+   jpa:
+     hibernate.ddl-auto: update
+     show-sql: false
+   thymeleaf:
+     cache: false
+   mail:
+     host: smtp.qq.com
+     username: 910455361@qq.com
+     password: qcsrzvteumjcbbaj
+     properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+
+
+
+managerBankAccount: manager
+managerBankPassword: 123
+

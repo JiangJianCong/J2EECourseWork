@@ -1,0 +1,26 @@
+<meta charset="UTF-8" />
+<div id="edu_ins_list">
+    <div class="main_data uk-panel ">
+        <div class="uk-panel uk-panel-box">
+            <table class="uk-table">
+                <caption style="font-size: 15px">教育机构列表</caption>
+                <thead>
+                <tr>
+                    <th>教育机构名字</th>
+                    <th>教育机构描述</th>
+                    <th>教育机构地址</th>
+                    <th>详细信息</th>
+                </tr>
+                </thead>
+                <tbody th:if="${eduInsList!=null}" >
+                <tr th:each="list:${eduInsList}">
+                    <th th:text="${list.eduInsName}"></th>
+                    <th th:text="${list.eduInsDesc}"></th>
+                    <th th:text="${list.location}"></th>
+                    <th><button type="button" onclick="alert('123')">查看更多</button></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
