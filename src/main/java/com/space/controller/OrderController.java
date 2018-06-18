@@ -150,7 +150,7 @@ public class OrderController {
 
             String message = "";
             switch (payService.payByOnline(oid, bank)) {
-                case "1" : message = "用户账号错误";
+                case "1" : message = "用户银行账号错误";
                         break;
                 case "2" : message = "余额不足";
                     break;

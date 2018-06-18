@@ -55,6 +55,7 @@ public class PayServiceImpl implements PayService {
 
         Order order = orderRepository.findOne(oid);
         Bank fromBank = bankRepository.findByAccountAndPassword(bank.getAccount(),bank.getPassword());
+        System.out.println("fromBank"+fromBank);
 
         if (fromBank==null){
             return "1";//账户密码错误
@@ -68,6 +69,7 @@ public class PayServiceImpl implements PayService {
         }
         String toBankAccount = order.getEduInsPlan().getEduInstitution().getBankAccount();
         Bank toBank = bankRepository.queryBankByAccount(managerBankAccount);
+        System.out.println(managerBankAccount);
 
         if (toBank==null){
             return "4";//机构银行账户不存在

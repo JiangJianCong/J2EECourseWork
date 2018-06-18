@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             userRepository.save(user);
-            this.sendMail(user,token);
+//            this.sendMail(user,token);
             return true;
         }
         return false;

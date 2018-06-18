@@ -25,5 +25,8 @@ public interface BankRepository extends JpaRepository<Bank,Integer> , JpaSpecifi
      * @param password
      * @return
      */
+//    @Query(value = "select * from t_bank where account = ?1 and password = ?2",nativeQuery = true)
     Bank findByAccountAndPassword(String account,String password);
+
+
 }

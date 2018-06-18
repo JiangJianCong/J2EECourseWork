@@ -1,6 +1,7 @@
 package com.space.course;
 
 
+import com.space.dao.BankRepository;
 import com.space.dao.OrderRepository;
 import com.space.entity.Bank;
 import com.space.entity.BankRecord;
@@ -25,13 +26,26 @@ public class PayServiceTest {
     @Resource
     private OrderRepository orderRepository;
 
-
+    @Resource
+    private BankRepository bankRepository;
 
     @Resource
     private OrderService orderService;
     @Test
     public void contextLoads(){
 
+    }
+
+    @Test
+    public void testBank() {
+
+        Bank byAccountAndPassword = bankRepository.findByAccountAndPassword("abcde", "11111");
+
+        Bank abcde = bankRepository.queryBankByAccount("abcde");
+
+        System.out.println("abcde:"+abcde);
+
+        System.out.println(byAccountAndPassword);
     }
 
     @Test
